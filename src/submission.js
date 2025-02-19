@@ -1,12 +1,5 @@
 export const submitForReview = async (fastify) => {
   if (process.env.RENDER_EXTERNAL_URL) {
-    if (!process.env.SUBMISSION_URL) {
-      fastify.log.error(
-        'SUBMISSION_URL is not set. Please set it as an environment variable on render.com to submit your API for review.'
-      )
-      return
-    }
-
     if (!process.env.API_KEY) {
       fastify.log.error(
         'API_KEY is not set. Please set it as an environment variable on render.com to submit your API for review.'
@@ -15,7 +8,7 @@ export const submitForReview = async (fastify) => {
     }
 
     try {
-      const response = await fetch(process.env.SUBMISSION_URL, {
+      const response = await fetch('https://hugogresse.fr/miashs-exam/api/submissions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

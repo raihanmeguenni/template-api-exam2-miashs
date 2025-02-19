@@ -17,7 +17,6 @@
 6. Sélectionner l’*Instance Type* **Free**
 7. Renseigner la variable d'environnement suivante :
    - API_KEY : la clé d'API qui vous a été fournie
-   - SUBMISSION_URL : `https://hugogresse.fr/miashs-exam/submissions`
    - PORT : `3000`
    - HOST : `0.0.0.0` (votre service ne fonctionnera pas si vous renseignez une autre valeur)
 8. Valider la création du service : *Déploy web service*
