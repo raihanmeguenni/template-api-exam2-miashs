@@ -9,7 +9,7 @@ const fastify = Fastify({
 fastify.listen(
   {
     port: process.env.PORT || 3000,
-    host: process.env.HOST || 'localhost',
+    host: process.env.RENDER_EXTERNAL_URL ? '0.0.0.0' : process.env.HOST || 'localhost',
   },
   function (err) {
     if (err) {
