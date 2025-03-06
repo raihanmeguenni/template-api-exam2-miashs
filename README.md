@@ -97,7 +97,7 @@ Vous devrez gérer le cas les d’erreurs suivants :
 
 ### DELETE /cities/:cityId/recipes/:recipeId
 
-Implémenter une route `DELETE` avec le `path` suivant : `/cities/:cityId/recipes/:recipeId`. Le paramètre d’url `:cityId` est un identifiant unique pour chaque ville disponibles depuis *City API* et le paramètre d’url `:recipeId` est un identifiant unique d'une recette généré au moment de la création de la recette.
+Implémenter une route `DELETE` avec le `path` suivant : `/cities/:cityId/recipes/:recipeId`. Le paramètre d’url `:cityId` est un identifiant unique pour chaque ville disponibles depuis *City API* et le paramètre d’url `:recipeId` est un identifiant unique d'une recette généré au moment de la création de la recette. Cette route répond un "no content" status code. 
 
 Cette route doit permettre de supprimer une recette précédemment créé et associé à une ville.
 
