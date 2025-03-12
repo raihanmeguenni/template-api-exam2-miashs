@@ -2,7 +2,7 @@
 
 ## Préparation
 
-1. *Forker* le template suivant : https://
+1. *Forker* le template suivant : [https://github.com/MIASHS-Integration-Donn-ses-Connectes/template-api-exam-miashs](https://github.com/MIASHS-Integration-Donn-ses-Connectes/template-api-exam-miashs)
 2. Copier le fichier .env.example, le renommer .env et renseigner la variable API_KEY avec la clé qui vous a été fournie
 3. Installer les dépendances du projet (dans le *repository* précédement *forker*) : `npm install`
 4. Lancer le serveur : `npm start`
@@ -20,7 +20,7 @@
    - PORT : `3000`
    - HOST : `0.0.0.0` (votre service ne fonctionnera pas si vous renseignez une autre valeur)
 8. Valider la création du service : *Déploy web service*
-9. Attendez que render.com déploie votre API, dans les logs, une fois votre serveur démarré, vous devriez voir passer le log suivant : `API submitted for review: [une url sur laquelle vous allez voir le résultat du test de votre API]`
+9. Attendez que render.com déploie votre API, dans les logs, une fois votre serveur démarré, vous devriez voir passer le log suivant : `API submitted for review`
 
 ## Implémentation de l’API
 
@@ -28,7 +28,7 @@ Vous devez implémenter 3 routes, pour cela vous allez devoir récupérer des in
 - La première API que l'on nommera “City API” vous permettra de récupérer des informations sur des villes.
 - La deuxième API que l'on nommera “Weather API” vous permettra de récupérer des prévisions météorologiques.
 
-La documentation de ces APIs est disponible à l'adresse suivante : https://hugogresse.fr/miashs-exam/api
+La documentation de ces APIs est disponible à l'adresse suivante : [https://api-ugi2pflmha-ew.a.run.app/](https://api-ugi2pflmha-ew.a.run.app/)
 
 ### GET /cities/:cityId/infos
 
@@ -38,7 +38,7 @@ Cette route doit permettre de récupérer des informations associées à une vil
 
 Le format de réponse attendu est le suivant: 
 
-```json
+```ts
 {
   // An array of number where the first item is the latitude and the second the longitude of the city
   coordinates: [lat: number, lon: number],
@@ -69,7 +69,7 @@ Cette route doit permettre d’associer une recette de cuisine à une ville. La 
 
 Le format du contenu de la requête (`body`) est le suivant: 
 
-```json
+```ts
 {
   // A string of text representing the recipe description
   content: string,
@@ -80,7 +80,7 @@ Vous devrez stocker les données en mémoire (dans un variable globale) sur votr
 
 Le format de réponse attendu est le suivant: 
 
-```json
+```ts
 {
   // An integer representing a unique identifier for this recipe, this id could be used to retrieve and/or delete this recipe
   id: integer,
@@ -97,10 +97,16 @@ Vous devrez gérer le cas les d’erreurs suivants :
 
 ### DELETE /cities/:cityId/recipes/:recipeId
 
-Implémenter une route `DELETE` avec le `path` suivant : `/cities/:cityId/recipes/:recipeId`. Le paramètre d’url `:cityId` est un identifiant unique pour chaque ville disponibles depuis *City API* et le paramètre d’url `:recipeId` est un identifiant unique d'une recette généré au moment de la création de la recette. Cette route répond un "no content" status code. 
+Implémenter une route `DELETE` avec le `path` suivant : `/cities/:cityId/recipes/:recipeId`. Le paramètre d’url `:cityId` est un identifiant unique pour chaque ville disponibles depuis *City API* et le paramètre d’url `:recipeId` est un identifiant unique d'une recette générée au moment de la création de la recette. Cette route répond un "no content" *status code*. 
 
-Cette route doit permettre de supprimer une recette précédemment créé et associé à une ville.
+Cette route doit permettre de supprimer une recette précédemment créée et associée à une ville.
 
 Gérer le cas les d’erreurs suivants :
   - Suppression d’une recette appartenant à une ville qui n’existe pas (les villes existantes sont fournies par “City API”)
   - Suppression d’une recette qui n’existe pas
+
+## Vérifier votre implémentation
+
+À chaque fois que vous allez *pusher* votre code sur Github, render.com va redéployer votre API et une fois l'API déployée va déclencher un test pour vérifier votre implémentation. 
+
+Vous pouvez vérifier que votre implémentation est correct depuis la page web suivante : [https://miashs-exam-api.web.app/](https://miashs-exam-api.web.app/), cette page vous permettra de voir si vous avez correctement implémenté vos 3 routes, vous aurez accès au détail des critères à respecter.
