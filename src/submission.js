@@ -8,6 +8,7 @@ export const submitForReview = async (fastify) => {
     }
 
     try {
+      await new Promise(resolve => setTimeout(resolve, 2000));
       const response = await fetch(`https://api-ugi2pflmha-ew.a.run.app/group/submissions?apiKey=${process.env.API_KEY}`, {
         method: 'POST',
         headers: {
