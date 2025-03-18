@@ -28,7 +28,7 @@ export const submitForReview = async (fastify) => {
         throw new Error(data.message)
       }
     } catch (error) {
-      fastify.log.error('Error while submitting your API for review:', error.message)
+      fastify.log.error('Error while submitting your API for review:', error)
     }
   }
 }
