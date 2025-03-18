@@ -8,7 +8,7 @@ export const submitForReview = async (fastify) => {
     }
 
     try {
-      const response = await fetch('https://hugogresse.fr/miashs-exam/api/submissions', {
+      const response = await fetch('https://api-ugi2pflmha-ew.a.run.app/submissions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
