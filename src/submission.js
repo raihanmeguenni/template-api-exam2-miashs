@@ -8,12 +8,11 @@ export const submitForReview = async (fastify) => {
     }
 
     try {
-      const response = await fetch('https://api-ugi2pflmha-ew.a.run.app/group/submissions', {
+      const response = await fetch(`https://api-ugi2pflmha-ew.a.run.app/group/submissions?apiKey=${process.env.API_KEY}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Accept: 'application/json',
-          Authorization: `Bearer ${process.env.API_KEY}`,
+          Accept: 'application/json'
         },
         body: JSON.stringify({
           apiUrl: process.env.RENDER_EXTERNAL_URL,
