@@ -78,7 +78,7 @@ Le format du contenu de la requête (`body`) est le suivant:
 
 Vous devrez stocker les données en mémoire (dans un variable globale) sur votre serveur et renvoyer la recette créée au client (avec une propriété `id` permettant d’identifier cette recette en particulier).
 
-Le format de réponse attendu est le suivant: 
+Le format de réponse attendu est le suivant avec un status code 201 :
 
 ```ts
 {
