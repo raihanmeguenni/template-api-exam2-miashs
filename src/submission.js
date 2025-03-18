@@ -19,12 +19,10 @@ export const submitForReview = async (fastify) => {
         }),
       })
 
-      const data = await response.json()
-
       if (response.ok) {
-        fastify.log.info('API submitted for review:', data.reviewUrl)
+        fastify.log.info('API submitted for review, see https://miashs-exam-api.web.app/')
       } else {
-        throw new Error(data.message)
+        throw new Error(response.status)
       }
     } catch (error) {
       fastify.log.error('Error while submitting your API for review:', error)
