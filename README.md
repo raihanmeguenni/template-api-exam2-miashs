@@ -11,7 +11,7 @@
 
 1. Connectez-vous sur [render.com](https://dashboard.render.com)
 2. Créer un nouveau *Web Service* (bouton “+ New” en haut à droite)
-3. Sélectionner le *repository* github correspondant à votre projet
+3. Sélectionner le *repository* github correspondant à votre projet (si vous ne voyez pas votre repo, reconfigurer GitHub dans "Credentials (1)" pour autoriser Render.con à lire le nouveau repo)
 4. Renseigner *Build Command* avec la commande suivante : `npm install`
 5. Renseigner *Start Command* avec la commande suivante : `npm start`
 6. Sélectionner l’*Instance Type* **Free**
