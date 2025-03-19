@@ -3,24 +3,10 @@
 ## Préparation
 
 1. *Forker* le template suivant : [https://github.com/MIASHS-Integration-Donn-ses-Connectes/template-api-exam-miashs](https://github.com/MIASHS-Integration-Donn-ses-Connectes/template-api-exam-miashs)
-2. Copier le fichier .env.example, le renommer .env et renseigner la variable API_KEY avec la clé qui vous a été fournie
-3. Installer les dépendances du projet (dans le *repository* précédement *forker*) : `npm install`
-4. Lancer le serveur : `npm start`
-
-## Déploiement
-
-1. Connectez-vous sur [render.com](https://dashboard.render.com)
-2. Créer un nouveau *Web Service* (bouton “+ New” en haut à droite)
-3. Sélectionner le *repository* github correspondant à votre projet (si vous ne voyez pas votre repo, reconfigurer GitHub dans "Credentials (1)" pour autoriser Render.con à lire le nouveau repo)
-4. Renseigner *Build Command* avec la commande suivante : `npm install`
-5. Renseigner *Start Command* avec la commande suivante : `npm start`
-6. Sélectionner l’*Instance Type* **Free**
-7. Renseigner la variable d'environnement suivante :
-   - API_KEY : la clé d'API qui vous a été fournie
-   - PORT : `3000`
-   - HOST : `0.0.0.0` (votre service ne fonctionnera pas si vous renseignez une autre valeur)
-8. Valider la création du service : *Déploy web service*
-9. Attendez que render.com déploie votre API, dans les logs, une fois votre serveur démarré, vous devriez voir passer le log suivant : `API submitted for review`
+2. Cloner sur votre machine le nouveau *repository* que vous venez de *forker*
+3. Copier le fichier .env.example, le renommer .env et renseigner la variable API_KEY avec la clé qui vous a été fournie
+4. Installer les dépendances du projet (dans le *repository* précédement *forker*) : `npm install`
+5. Lancer le serveur en mode développement : `npm run dev`
 
 ## Implémentation de l’API
 
@@ -104,6 +90,21 @@ Cette route doit permettre de supprimer une recette précédemment créée et as
 Gérer le cas les d’erreurs suivants :
   - Suppression d’une recette appartenant à une ville qui n’existe pas (les villes existantes sont fournies par “City API”)
   - Suppression d’une recette qui n’existe pas
+
+## Déploiement
+
+1. Connectez-vous sur [render.com](https://dashboard.render.com)
+2. Créer un nouveau *Web Service* (bouton “+ New” en haut à droite)
+3. Sélectionner le *repository* github correspondant à votre projet (si vous ne voyez pas votre repo, reconfigurer GitHub dans "Credentials (1)" pour autoriser Render.con à lire le nouveau repo)
+4. Renseigner *Build Command* avec la commande suivante : `npm install`
+5. Renseigner *Start Command* avec la commande suivante : `npm start`
+6. Sélectionner l’*Instance Type* **Free**
+7. Renseigner la variable d'environnement suivante :
+   - API_KEY : la clé d'API qui vous a été fournie
+   - PORT : `3000`
+   - HOST : `0.0.0.0` (votre service ne fonctionnera pas si vous renseignez une autre valeur)
+8. Valider la création du service : *Déploy web service*
+9. Attendez que render.com déploie votre API, dans les logs, une fois votre serveur démarré, vous devriez voir passer le log suivant : `API submitted for review`
 
 ## Vérifier votre implémentation
 
