@@ -17,6 +17,7 @@ export const submitForReview = async (fastify) => {
         },
         body: JSON.stringify({
           apiUrl: process.env.RENDER_EXTERNAL_URL,
+          gitRepo: process.env.RENDER_GIT_REPO_SLUG,
         }),
       })
 
