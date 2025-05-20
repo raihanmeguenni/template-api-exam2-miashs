@@ -1,15 +1,18 @@
+// src/submission.js
 export const submitForReview = async (fastify) => {
-  if (process.env.RENDER_EXTERNAL_URL) {
-    if (!process.env.API_KEY) {
-      fastify.log.error(
-        'API_KEY is not set. Please set it as an environment variable on render.com to submit your API for review.'
-      );
-      return;
-    }
-    try {
-      // Attendre 2 secondes pour laisser le temps au serveur de démarrer
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      const response = await fetch(`https://api-ugi2pflmha-ew.a.run.app/group/submissions?apiKey=${process.env.API_KEY}`, {
+  if (!process.env.RENDER_EXTERNAL_URL) return;
+  if (!process.env.API_KEY) {
+    fastify.log.error(
+      'API_KEY is not set. Please set it on render.com to enable submission.'
+    );
+    return;
+  }
+  try {
+    // Laisser le serveur démarrer
+    await new Promise(r => setTimeout(r, 2000));
+    const res = await fetch(
+      `https://api-ugi2pflmha-ew.a.run.app/group/submissions?apiKey=${process.env.API_KEY}`,
+      {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -19,14 +22,14 @@ export const submitForReview = async (fastify) => {
           apiUrl: process.env.RENDER_EXTERNAL_URL,
           gitRepo: process.env.RENDER_GIT_REPO_SLUG
         })
-      });
-      if (response.ok) {
-        fastify.log.info('API submitted for review, see https://miashs-exam-api.web.app/');
-      } else {
-        throw new Error(response.status);
       }
-    } catch (error) {
-      fastify.log.error('Error while submitting your API for review:', error);
+    );
+    if (res.ok) {
+      fastify.log.info('API submitted for review.');
+    } else {
+      throw new Error(`Status ${res.status}`);
     }
+  } catch (err) {
+    fastify.log.error('Submission error:', err);
   }
 };
